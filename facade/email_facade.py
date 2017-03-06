@@ -21,7 +21,7 @@ class EmailFacade:
 		smtp.login(self.username, self.password)
 		smtp.sendmail(from_email, [to_email], message)
 
-	def get_inbox(self):
+	def get_inbox_imap(self):
 		mailbox = imaplib.IMAP4(self.host)
 		mailbox.login(bytes(self.username, 'utf8'),bytes(self.password, 'utf8'))
 		mailbox.select()
